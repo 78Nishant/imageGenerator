@@ -32,12 +32,14 @@ const readline=require('readline');
     let driver = await new Builder().forBrowser('chrome')
     .setChromeOptions(
         new (require('selenium-webdriver/chrome').Options)()
+          .addArguments('--headless') // Required for cloud environments
+          .addArguments('--no-sandbox')
+          .addArguments('--disable-dev-shm-usage')
+          .addArguments('--disable-gpu')
+          .addArguments('--window-size=1920x1080')
+          .addArguments('--remote-debugging-port=9222')
           .addArguments('--ignore-certificate-errors')
           .addArguments('--ignore-ssl-errors')
-          .addArguments('--no-sandbox')
-          .addArguments('--headless') // Required for cloud environments
-          .addArguments('--disable-dev-shm-usage')
-          .addArguments('--remote-debugging-port=9222')
           .addArguments(`--user-data-dir=/tmp/unique-user-data-dir-${Date.now()}`)
     )
     .build()
