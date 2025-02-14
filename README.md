@@ -33,8 +33,8 @@ This API is designed to scrape images from the website [Craiyon](https://www.cra
 
 1. Clone the repository:
     ```sh
-    git clone <repo_url>
-    cd <repo_folder>
+    git clone https://github.com/78Nishant/imageGenerator/
+    cd imageGenerator
     ```
 
 2. Install the required packages:
