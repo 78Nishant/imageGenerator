@@ -34,7 +34,12 @@ const readline=require('readline');
         new (require('selenium-webdriver/chrome').Options)()
           .addArguments('--ignore-certificate-errors')
           .addArguments('--ignore-ssl-errors')
-      )
+          .addArguments('--no-sandbox')
+          .addArguments('--headless') // Required for cloud environments
+          .addArguments('--disable-dev-shm-usage')
+          .addArguments('--remote-debugging-port=9222')
+          .addArguments(`--user-data-dir=/tmp/unique-user-data-dir-${Date.now()}`)
+    )
     .build()
   
     try {
